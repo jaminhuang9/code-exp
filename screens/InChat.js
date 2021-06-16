@@ -1,10 +1,23 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { View, ScrollView, Text, Button, StyleSheet } from "react-native";
+import {
+  View,
+  ScrollView,
+  Text,
+  Button,
+  StyleSheet,
+  TouchableOpacity,
+} from "react-native";
 import { Bubble, GiftedChat, Send } from "react-native-gifted-chat";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
+import { useRoute, useNavigation } from "@react-navigation/native";
 
 const ChatScreen = () => {
+  const navigation = useNavigation();
+  const route = useRoute();
+  const { params } = route;
+  console.log(route.params);
+
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
@@ -15,7 +28,7 @@ const ChatScreen = () => {
         createdAt: new Date(),
         user: {
           _id: 2,
-          name: "Rhino",
+          name: route.params.name,
         },
       },
       {
@@ -28,7 +41,7 @@ const ChatScreen = () => {
         },
       },
     ]);
-  }, []);
+  }, [params]);
 
   const onSend = useCallback((messages = []) => {
     setMessages((previousMessages) =>

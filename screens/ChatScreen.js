@@ -43,9 +43,12 @@ function Chatlist({ navigation, route }) {
 
   function renderItem({ item }) {
     return (
-      <View style={styles.listItem}>
+      <TouchableOpacity
+        onPress={() => navigation.navigate("Talk", { name: item.title })}
+        style={styles.listItem}
+      >
         <Text>{item.title}</Text>
-      </View>
+      </TouchableOpacity>
     );
   }
 
