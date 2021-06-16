@@ -1,9 +1,9 @@
 import { StatusBar } from "expo-status-bar";
-import React from "react";
+import React, { useState } from "react";
 import { Animated, StyleSheet, Text, View } from "react-native";
 import { keyframes, stagger } from "popmotion";
 import { render } from "react-dom";
-import { FontAwesome, MaterialIcons } from "@expo/vector-icons";
+import { MaterialIcons } from "@expo/vector-icons";
 import { Constants } from "expo";
 
 //number of circles
